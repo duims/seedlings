@@ -15,7 +15,7 @@ def tortoiseHare(linkedList):
 
     slow = linkedList
     fast = linkedList['next']['next']
-    while slow != fast:
+    while id(slow)!= id(fast):
         if fast['next'] == None or fast['next']['next'] == None:
             return False
         else:
