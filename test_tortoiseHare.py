@@ -21,7 +21,8 @@ class TestFunctions(unittest.TestCase):
         self.oneLinked=th.makeALoop(th.makeLinkedList(['a']), 0)
         self.twoLinked=th.makeALoop(th.makeLinkedList(['b','c']), 1)
         self.threeLinked=th.makeALoop(th.makeLinkedList(['d','e','f']), 0)
-        self.longLinked=th.makeALoop(th.makeLinkedList(['g', 'hi', 'j', 'klm', 'n', 'o']), (random.randint(0, 6)))       
+        self.x=(random.randint(0, 6))
+        self.longLinked=th.makeALoop(th.makeLinkedList(['g', 'hi', 'j', 'klm', 'n', 'o']), self.x)       
 
     def tearDown(self):
         #kill it with fire
@@ -35,6 +36,7 @@ class TestFunctions(unittest.TestCase):
         del self.twoLinked
         del self.threeLinked
         del self.longLinked
+        del self.x
 
 
     #test all the straight lists:
@@ -54,6 +56,7 @@ class TestFunctions(unittest.TestCase):
     def test_threeElemCycleFree(self):
         #three elements and no cycles should be false
         self.assertFalse(th.tortoiseHare(self.threeElem))
+
         
     def test_longListCycleFree(self):
         #linked list with no cycles should be false
